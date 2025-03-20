@@ -76,10 +76,15 @@ select {
 }
 
 /* Estilos responsivos */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
     .toolbar, .search-replace {
         flex-direction: column;
         align-items: center;
+        text-align: center;
     }
 
     .toolbar button, .search-replace button, select, input {
@@ -88,6 +93,22 @@ select {
     }
 
     .editor {
-        min-height: 200px;
+        min-height: 200px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 10px;
+    }
+    .toolbar button, .search-replace button {
+        padding: 10px;
+    }
+    .editor {
+        padding: 8px;
     }
 }

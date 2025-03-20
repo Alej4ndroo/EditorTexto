@@ -65,7 +65,19 @@ function saveText() {
 // Función de búsqueda
 function searchText() {
     const search = document.getElementById('searchText').value;
-    alert(`Buscando: "${search}"`);
+    if (!search) return;
+    
+    const editor = document.getElementById('editor');
+    const content = editor.innerHTML;
+    
+    // Limpiar resaltados anteriores
+    const cleanContent = content.replace(/<mark>(.*?)<\/mark>/g, '$1');
+    
+    // Crear expresión regular para buscar la palabra
+    const regex = new RegExp(search, 'gi');
+    const highlightedContent = cleanContent.replace(regex, '<mark>$&</mark>');
+    
+    editor.innerHTML = highlightedContent;
 }
 
 // Función de reemplazo
